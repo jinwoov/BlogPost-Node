@@ -105,3 +105,4 @@ dist
 
 # personal
 user-secret.txt
+.vscode/*
