@@ -17,7 +17,7 @@ const {nanoid} = require("nanoid");
 require("dotenv").config();
 const db = monk(process.env.MONGO_URI);
 const posts = db.get('title');
-posts.createIndex( { postNum: 1 }, {unique: true} );
+posts.createIndex('postNum');
 
 
 const app = express();
@@ -30,10 +30,10 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/post', (req, res) => {
-    /// get all the blog post
-    res.json({
-        message: "hello this is jin"
-    });
+     posts.find({}, (err,post) => {
+         console.log(posts[0]);
+     })
+
 });
 
 // post blog post
@@ -48,13 +48,12 @@ app.post('/post', async (req, res, next) => {
         });
         if(!slug) {
             slug = nanoid(5);
-        } 
-        // else {
-        //     const existing = await posts.findOne({ slug });
-        //     if(existing) {
-        //         throw new Error('Slug in use');
-        //     }
-        // }
+        } else {
+            const existing = await posts.findOne({ slug });
+            if(existing) {
+                throw new Error('Slug in use');
+            }
+        }
         const newPosts = {
             slug,
             date,
@@ -84,3 +83,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.error(`Listening at ${PORT}`);
 });
+
+//// it is still in working phase i am trying to get get route to work to pull up mango db collections
