@@ -17,7 +17,7 @@ const {nanoid} = require("nanoid");
 require("dotenv").config();
 const db = monk(process.env.MONGO_URI);
 const posts = db.get('title');
-posts.createIndex('postNum');
+posts.createIndex( { postNum: 1 }, {unique: true} );
 
 
 const app = express();
@@ -48,12 +48,13 @@ app.post('/post', async (req, res, next) => {
         });
         if(!slug) {
             slug = nanoid(5);
-        } else {
-            const existing = await posts.findOne({ slug });
-            if(existing) {
-                throw new Error('Slug in use');
-            }
-        }
+        } 
+        // else {
+        //     const existing = await posts.findOne({ slug });
+        //     if(existing) {
+        //         throw new Error('Slug in use');
+        //     }
+        // }
         const newPosts = {
             slug,
             date,
