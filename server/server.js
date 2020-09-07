@@ -1,5 +1,6 @@
 'use strict';
 
+// Dependencies for site work
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -12,27 +13,30 @@ const schema = yup.object().shape({
     title: yup.string(),
     content: yup.string()
 });
+
+// using the noanoid to create unique id
 const {nanoid} = require("nanoid");
 
 require("dotenv").config();
+
+// mongoDB dependencies
 const db = monk(process.env.MONGO_URI);
 const posts = db.get('title');
 posts.createIndex('postNum');
 
-
 const app = express();
  
-
-
+// using middlewares
 app.use(helmet());
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(express.json());
 
 app.get('/post', (req, res) => {
-     posts.find({}, (err,post) => {
-         console.log(posts[0]);
-     })
+     return posts.find({})
+      .then((post) => {
+          res.json(post);
+      });
 
 });
 
