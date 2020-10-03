@@ -15,7 +15,16 @@
     </header>
     <main>
         <ul>
-            <li></li>
+            <h1>Posts</h1>
+            <% bpost.forEach(post => { %>
+                <li>
+                    <div class="heading">
+                        <h2><%= post.title %></h2>
+                        <h3><%= post.date %></h3>
+                    </div>
+                    <p><%= post.content %></p>
+                </li>
+            <% }) %>
         </ul>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
