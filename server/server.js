@@ -10,6 +10,7 @@ const monk = require("monk");
 const schema = yup.object().shape({
     slug: yup.string(),
     date: yup.date(),
+    image: yup.string(),
     title: yup.string(),
     content: yup.string()
 });
@@ -42,12 +43,15 @@ app.get('/post', (req, res) => {
 
 // post blog post
 app.post('/post', async (req, res, next) => {
-    let { slug, date, title, content } = req.body;
+    let { slug, title, image, content } = req.body;
     try{
+        var date = new Date();
+        date = date.toLocaleDateString();
         await schema.validate({
             slug,
             date,
             title,
+            image,
             content
         });
         if(!slug) {
@@ -62,6 +66,7 @@ app.post('/post', async (req, res, next) => {
             slug,
             date,
             title,
+            image,
             content
         };
         const created = await posts.insert(newPosts);

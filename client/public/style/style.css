@@ -22,11 +22,13 @@ body main {
 body main h1 {
   font-size: 40px;
   padding: 2%;
+  font-family: "Lora", serif;
 }
 body main ul {
   border: black 1px outset;
   background: white;
   margin: 5%;
+  padding: 1%;
 }
 body main ul .heading {
   display: flex;
@@ -36,10 +38,17 @@ body main ul .heading {
 body main ul .heading h2 {
   font-size: 30px;
 }
+body main ul .heading h3 {
+  align-self: center;
+}
 body main ul li {
   padding: 2%;
   width: 70%;
   margin: auto;
+  border-bottom: grey 1px solid;
+}
+body main ul li img {
+  width: 100%;
 }
 body main ul li p {
   padding: 1.5%;

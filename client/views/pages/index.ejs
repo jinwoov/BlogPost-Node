@@ -6,23 +6,23 @@
     <title>Jin's BlogPost</title>
     <link href="./style/reset.css" rel="stylesheet">
     <link href="./style/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="top-cont">
-            <h1>Blog Post</h1>
+            <h1>Jin's Blog</h1>
         </div>
     </header>
     <main>
         <ul>
-            <h1>Posts</h1>
             <% bpost.forEach(post => { %>
                 <li>
+                    <h1><%= post.title %></h2>
                     <div class="heading">
-                        <h2><%= post.title %></h2>
                         <h3><%= post.date %></h3>
                     </div>
-                    <p><%= post.content %></p>
+                    <p><%- post.content %></p>
                 </li>
             <% }) %>
         </ul>
