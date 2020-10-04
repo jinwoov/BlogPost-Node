@@ -1,4 +1,5 @@
 $main-background: #e7f0f3;
+$heading-background: #202c34;
 $desktop-bp: 1000px;
 $font: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
 
@@ -13,7 +14,7 @@ body{
     background: $main-background;
     header{
         .top-cont{
-            background: #202c34;
+            background: $heading-background;
             h1 {
                 font-size: 3rem;
                 padding: 15px;
@@ -24,34 +25,28 @@ body{
 
     main {
         text-align: center;
-        h1{
-            font-size: 40px;
-            padding: 2%;
-            font-family: 'Lora', serif;
-
-        }
+        
         ul{
             border: black 1px outset;
             background: white;
             margin: 5%;
             padding: 1%;
-            .heading{
-                h2{
-                    font-size: 30px;
-                }
-                display: flex;
-                justify-content: space-between;
-                margin: 10px 0;
-                h3 {
-                    align-self: center;
-                }
-            }
             li{
+                h1{
+                    font-size: 40px;
+                    padding: 2% 0;
+                    font-family: 'Lora', serif;
+                    text-align: left;
+                }
+                h3 {
+                    text-align: right;
+                }
                 img {
                     width: 100%;
                 }
                 p {
-                    padding: 1.5%;
+                    padding: 1.5% 0;
+                    line-height: 1.5rem;
                     text-align: start;
                 }
                 padding: 2%;
@@ -60,6 +55,17 @@ body{
                 border-bottom: grey 1px solid;
             }
         }
+    }
+
+    footer{
+        background: $heading-background;
+        color: white;
+        padding: 2%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
     }
 }
 

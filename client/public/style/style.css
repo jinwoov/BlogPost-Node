@@ -19,27 +19,11 @@ body header .top-cont h1 {
 body main {
   text-align: center;
 }
-body main h1 {
-  font-size: 40px;
-  padding: 2%;
-  font-family: "Lora", serif;
-}
 body main ul {
   border: black 1px outset;
   background: white;
   margin: 5%;
   padding: 1%;
-}
-body main ul .heading {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-body main ul .heading h2 {
-  font-size: 30px;
-}
-body main ul .heading h3 {
-  align-self: center;
 }
 body main ul li {
   padding: 2%;
@@ -47,12 +31,32 @@ body main ul li {
   margin: auto;
   border-bottom: grey 1px solid;
 }
+body main ul li h1 {
+  font-size: 40px;
+  padding: 2% 0;
+  font-family: "Lora", serif;
+  text-align: left;
+}
+body main ul li h3 {
+  text-align: right;
+}
 body main ul li img {
   width: 100%;
 }
 body main ul li p {
-  padding: 1.5%;
+  padding: 1.5% 0;
+  line-height: 1.5rem;
   text-align: start;
+}
+body footer {
+  background: #202c34;
+  color: white;
+  padding: 2%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

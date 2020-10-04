@@ -16,17 +16,21 @@
     </header>
     <main>
         <ul>
-            <% bpost.forEach(post => { %>
+            <% for(let i = bpost.length - 1; i >= 0; i--) { %>
                 <li>
-                    <h1><%= post.title %></h2>
-                    <div class="heading">
-                        <h3><%= post.date %></h3>
+                    <div>
+                        <h1><%= bpost[i].title %></h1>
+                        <h3><%= bpost[i].date %></h3>
                     </div>
-                    <p><%- post.content %></p>
+                    <img src="<%= bpost[i].image %>">
+                    <p><%- bpost[i].content %></p>
                 </li>
-            <% }) %>
+            <% } %>
         </ul>
     </main>
+    <footer>
+        <p>Copyright Jin Kim</p>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="./js/app.js"></script>
 </body>
