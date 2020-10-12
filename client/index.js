@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const superagent = require("superagent");
+const backendAPI = process.env.BACKAPI;
 
 require('dotenv').config();
 
@@ -15,7 +16,7 @@ app.use(express.urlencoded({extended:true}));
 app.get('/', homeControl);
 
 function homeControl(req, res) {
-    let url = "http://localhost:3000/post";
+    let url = backendAPI;
     superagent.get(url)
         .then(data => {
             res.render('pages/index', {bpost: data.body });
