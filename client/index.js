@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const superagent = require("superagent");
-const backendAPI = process.env.BACKAPI;
+const backendAPI = process.env.BACKAPI || "http://localhost:3000/post";
 
 require('dotenv').config();
 
@@ -14,6 +14,12 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}));
 
 app.get('/', homeControl);
+app.get('/login', loginUser);
+
+function loginUser(req,res) {
+    res.render('pages/login')
+}
+
 
 function homeControl(req, res) {
     let url = backendAPI;
@@ -22,6 +28,7 @@ function homeControl(req, res) {
             res.render('pages/index', {bpost: data.body });
         })
 }
+
 
 
 const PORT = process.env.PORT || 5001;
