@@ -1,20 +1,19 @@
 <%- include('./partials/head.ejs') %>
 <body>
-    <header>
-        <div class="top-cont">
-            <h1>Jin's Blog</h1>
-        </div>
-    </header>
+    <%- include('./partials/header.ejs') %>
     <main>
         <ul>
-            <% for(let i = bpost.length - 1; i >= 0; i--) { %>
+            <% for(let i = 0; i < bpost.length; i++) { %>
                 <li>
                     <div>
-                        <h1><%= bpost[i].title %></h1>
-                        <h3><%= bpost[i].date %></h3>
+                        <a href="<%= bpost[i].link %>">
+                        <img src="<%= bpost[i].thumbnail %>">
+                        <h1><%= bpost[i].title %></h1></a>
                     </div>
-                    <img src="<%= bpost[i].image %>">
-                    <p><%- bpost[i].content %></p>
+                    <div class="small-box">
+                        <h3><%= bpost[i].author %></h3>
+                        <h3><%= bpost[i].pubDate %></h3>
+                    </div>
                 </li>
             <% } %>
         </ul>
