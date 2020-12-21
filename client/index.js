@@ -5,8 +5,6 @@ const app = express();
 const cors = require("cors");
 const superagent = require("superagent");
 require('dotenv').config();
-const uName = process.env.UNAME;
-const pWord = process.env.PWORD;
 const backendAPI = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jinwookim928";
 
 
