@@ -6,7 +6,7 @@ COPY ./ ./
 
 WORKDIR /app/client
 
-EXPOSE 5000 80
+EXPOSE 5000 5001
 
 RUN npm install
 
