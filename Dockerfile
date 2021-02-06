@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY ./client ./
+COPY ./ ./
 
 WORKDIR /app/client
 
