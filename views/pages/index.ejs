@@ -1,0 +1,23 @@
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <main>
+        <ul>
+            <% for(let i = 0; i < bpost.length; i++) { %>
+                <li>
+                    <div>
+                        <a href="<%= bpost[i].link %>">
+                        <img src="<%= bpost[i].thumbnail %>">
+                        <h1><%= bpost[i].title %></h1></a>
+                    </div>
+                    <div class="small-box">
+                        <h3><%= bpost[i].author %></h3>
+                        <h3><%= bpost[i].pubDate %></h3>
+                    </div>
+                </li>
+            <% } %>
+        </ul>
+    </main>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
